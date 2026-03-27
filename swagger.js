@@ -6,37 +6,19 @@ const options = {
     info: {
       title: 'Fitness Tracker API',
       version: '1.0.0',
-      description: 'Fitness Tracker API with OAuth Authentication - Track workouts and user profiles'
+      description: 'Fitness Tracker API - Track workouts and user profiles'
     },
     servers: [
       {
-        url: 'http://localhost:3000',
-        description: 'Development server'
-      },
-      {
         url: 'https://cse341-fitness-tracker.onrender.com',
         description: 'Production server'
+      },
+      {
+        url: 'http://localhost:3000',
+        description: 'Development server'
       }
-    ],
-    components: {
-      securitySchemes: {
-        OAuth2: {
-          type: 'oauth2',
-          flows: {
-            authorizationCode: {
-              authorizationUrl: 'https://github.com/login/oauth/authorize',
-              tokenUrl: 'https://github.com/login/oauth/access_token',
-              scopes: {
-                'user:email': 'User email access'
-              }
-            }
-          }
-        }
-      }
-    },
-    security: [{
-      OAuth2: ['user:email']
-    }]
+    ]
+    // Remove the components.securitySchemes and security sections
   },
   apis: ['./routes/*.js']
 };
